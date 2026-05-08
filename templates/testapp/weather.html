@@ -1,0 +1,202 @@
+{% load static %}
+<html>
+<head>
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{% static 'css/weather.css' %}">
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+<div class="main-container">
+<div class="weather-card">
+
+        <h1 class="heading">
+
+            <i class="bi bi-cloud-sun-fill"></i>
+
+            Weather App
+
+        </h1>
+
+    
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="search-box">
+
+                {{ form.city }}
+
+                <button type="submit">
+
+                    <i class="bi bi-search"></i>
+
+                </button>
+
+            </div>
+
+        </form>
+
+        <button class="location-btn" onclick="getLocation()">
+
+            <i class="bi bi-geo-alt-fill"></i>
+
+            Current Location
+
+        </button>
+
+
+        {% if data.error %}
+
+        <div class="error-box">
+
+            {{ data.error }}
+
+        </div>
+
+        {% endif %}
+
+
+
+        {% if data %}
+
+        <div class="weather-box">
+
+
+
+            <h2>
+
+                <i class="bi bi-geo-alt-fill"></i>
+
+                {{ data.city }}
+
+            </h2>
+
+        
+
+            <h1 class="temp">
+
+                {{ data.temperature }}°C
+
+            </h1>
+
+        
+
+            <h3 class="desc">
+
+                <i class="bi bi-cloud-fill"></i>
+
+                {{ data.description }}
+
+            </h3>
+
+          
+
+            <div class="details">
+
+                <p>
+
+                    <i class="bi bi-droplet-half"></i>
+
+                    Humidity : {{ data.humidity }}%
+
+                </p>
+
+                <p>
+
+                    <i class="bi bi-wind"></i>
+
+                    Wind Speed : {{ data.wind }} km/h
+
+                </p>
+
+
+                <p>
+
+                    <i class="bi bi-clock-fill"></i>
+
+                    <span id="clock"></span>
+
+                </p>
+
+
+                <p>
+
+                    <i class="bi bi-calendar-event-fill"></i>
+
+                    {% now "d M Y" %}
+
+                </p>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+function updateClock(){
+
+    let now = new Date();
+
+    let time = now.toLocaleTimeString([], {
+
+        hour: '2-digit',
+
+        minute: '2-digit',
+
+        second: '2-digit'
+
+    });
+
+    document.getElementById("clock").innerHTML = time;
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+</script>
+
+
+
+<script>
+
+function getLocation(){
+
+    if(navigator.geolocation){
+
+        navigator.geolocation.getCurrentPosition(showPosition);
+
+    }
+
+    else{
+
+        alert("Geolocation is not supported");
+
+    }
+}
+
+function showPosition(position){
+
+    let lat = position.coords.latitude;
+
+    let lon = position.coords.longitude;
+
+    window.location.href =
+    `/location_weather/?lat=${lat}&lon=${lon}`;
+}
+
+</script>
+
+</body>
+
+</html>
