@@ -17,5 +17,11 @@ A real-time weather web application developed using Django and OpenWeather API.
 - Bootstrap
 - OpenWeather API
 
+  ## Screenshot
+
+![Weather App](weather1.png)
+![Weather App](currentlocation.png)
+![Weather App](searchcity.png)
+
 ## Author
 Sachin Kumar
