@@ -25,3 +25,12 @@ A real-time weather web application developed using Django and OpenWeather API.
 
 ## Author
 Sachin Kumar
+
+### LinkedIn
+[LinkedIn Profile](https://www.linkedin.com/in/sachin-kumar-362b53343/)
+
+### GitHub
+[GitHub](https://github.com/SACHIN197-creator)
+
+---
+
