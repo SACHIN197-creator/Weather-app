@@ -1,3 +1,7 @@
+## 🚀 Live Demo
+
+🔗 [View Live Project](https://personal-portfolio-ywxz.onrender.com/)
+
 # Weather App using Django
 
 A real-time weather web application developed using Django and OpenWeather API.
