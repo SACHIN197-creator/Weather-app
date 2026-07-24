@@ -20,6 +20,6 @@ from testapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/',views.home),
+    path('',views.home),
     path('location_weather/', views.location_weather, name='location_weather'),
 ]
