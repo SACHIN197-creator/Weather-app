@@ -1,6 +1,6 @@
 ## 🚀 Live Demo
 
-🔗 [View Live Project](https://personal-portfolio-ywxz.onrender.com/)
+🔗 [View Live Project](https://weather-app-hn59.onrender.com)
 
 # Weather App using Django
 
